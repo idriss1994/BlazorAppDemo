@@ -10,3 +10,13 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+
+    List<Pizza> pizzas = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        pizzas = await PizzaService.GetPizzasAsync();
+    }
+}
