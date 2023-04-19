@@ -1,5 +1,8 @@
 ﻿@page "/counter"
 
+@using BlazorAppDemo.Components;
+@using Models.Topping;
+
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
@@ -8,8 +11,17 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<h2>Some pizzas</h2>
+<DisplayPizza PizzaName="Hawaiin" Topping="@(new PizzaTopping{ Name = "Chilli sauce", Ingredients = "Three kings of chilli" })" />
+<DisplayPizza PizzaName="Hawaiin" Topping="@pizzaTopping" />
+
 @code {
     private int currentCount = 0;
+    private PizzaTopping pizzaTopping = new PizzaTopping
+    {
+       Name = "Chilli sauce",
+       Ingredients = "Three kings of chilli"
+    };
 
     private void IncrementCount()
     {
